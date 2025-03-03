@@ -1,0 +1,68 @@
+body {
+    background-color: thistle; /* Ensures a visible background */
+    color: #000; /* Ensures text is visible */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.browser-header {
+    display: flex;
+    align-items: center;
+    background: #ddd;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+}
+.buttons {
+    display: flex;
+    gap: 5px;
+    margin-right: 10px;
+}
+.buttons span {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.red { background: red; }
+.yellow { background: yellow; }
+.green { background: green; cursor: pointer; }
+.browser {
+    width: 80%; /* Takes up 80% of the webpage's width */
+    height: 80vh; /* Takes up 80% of the viewport height */
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white; /* Ensures visibility in fullscreen */
+}
+.browser-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto; /* Allows vertical scrolling */
+    scrollbar-width: none; /* For Firefox */
+}
+.browser-content::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.promotion-image {
+    width: 100%; /* Takes up 30% of the empty browser space */
+    cursor: pointer;
+    display: block;
+    margin: 20px auto; /* Centers the image horizontally */
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+}
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}

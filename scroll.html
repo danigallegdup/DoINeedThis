@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Chrome Browser</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./script.js"></script>
+</head>
+<body>
+    <div class="browser" id="browserWindow">
+        <div class="browser-header">
+            <div class="buttons">
+                <span class="red"></span>
+                <span class="yellow"></span>
+                <span class="green" id="fullscreenBtn"></span>
+            </div>
+            <input type="text" value="https://fake-shopping.com" readonly>
+        </div>
+        <div class="browser-content">
+            <div class="gallery">
+                <img src="./scroll/black1.png" alt="Fashion Look 1">
+                <img src="./scroll/paris_white.png" alt="Fashion Look 2">
+                <img src="./scroll/black2.png" alt="Fashion Look 3">
+                <img src="./scroll/white_3.png" alt="Fashion Look 4">
+                <img src="./scroll/black_model.png" alt="Fashion Look 5">
+                <img src="./scroll/white_4.png" alt="Fashion Look 6">
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("fullscreenBtn").addEventListener("click", function() {
+            let browser = document.getElementById("browserWindow");
+            if (!document.fullscreenElement) {
+                browser.requestFullscreen().catch(err => {
+                    console.log(`Error: ${err.message}`);
+                });
+                browser.style.backgroundColor = "white"; // Ensures white background in fullscreen
+            } else {
+                document.exitFullscreen();
+                browser.style.backgroundColor = "white"; // Reset background after exiting fullscreen
+            }
+        });
+    </script>
+</body>
+</html>
+
