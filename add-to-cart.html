@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Chrome Browser</title>
+    <link rel="stylesheet" href="cart.css">
+    <script src="./script.js"></script>
+</head>
+<body>
+    <div class="browser" id="browserWindow">
+        <div class="browser-header">
+            <div class="buttons">
+                <span class="red"></span>
+                <span class="yellow"></span>
+                <span class="green" id="fullscreenBtn"></span>
+            </div>
+            <input type="text" value="https://fake-shopping.com" readonly>
+        </div>
+        <div class="browser-content">
+            <div class="left-section">
+                <div class="collage">
+                    <img src="./scroll/white_3.png" alt="Fashion Look 4">
+                    <img src="./scroll/black1.png" alt="Fashion Look 1">
+                    <img src="./scroll/paris_white.png" alt="Fashion Look 2">
+                    <img src="./scroll/black2.png" alt="Fashion Look 3">
+                </div>
+            </div>
+            <div class="right-section">
+                <h2>35% Off Sale</h2>
+                <p>Original Price: <s>$154</s></p>
+                <p>Sale Price: <strong>$94</strong></p>
+                <button class="add-to-cart" id="addToCartBtn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>What would you like to do next?</p>
+            <button id="removeInfluencesBtn">Remove Influences</button>
+            <button id="viewStatsBtn">View Stats</button>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("fullscreenBtn").addEventListener("click", function() {
+            let browser = document.getElementById("browserWindow");
+            if (!document.fullscreenElement) {
+                browser.requestFullscreen().catch(err => {
+                    console.log(`Error: ${err.message}`);
+                });
+                browser.style.backgroundColor = "white"; // Ensures white background in fullscreen
+            } else {
+                document.exitFullscreen();
+                browser.style.backgroundColor = "white"; // Reset background after exiting fullscreen
+            }
+        });
+
+        // Show modal when "Add to Cart" button is clicked
+        document.getElementById("addToCartBtn").addEventListener("click", function() {
+            document.getElementById("cartModal").style.display = "block";
+        });
+
+        // Close the modal
+        document.querySelector('.modal .close').addEventListener("click", function() {
+            document.getElementById("cartModal").style.display = "none";
+        });
+
+        // Navigate to "Remove Influences" page
+        document.getElementById("removeInfluencesBtn").addEventListener("click", function() {
+            window.location.href = './remove-influences.html';
+        });
+
+        // Navigate to "View Stats" page
+        document.getElementById("viewStatsBtn").addEventListener("click", function() {
+            window.location.href = './view-stats.html';
+        });
+    </script>
+</body>
+</html>

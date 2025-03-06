@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fake Chrome Browser</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="scroll.css">
     <script src="./script.js"></script>
 </head>
 <body>
@@ -17,15 +17,28 @@
             </div>
             <input type="text" value="https://fake-shopping.com" readonly>
         </div>
-        <div class="browser-content">
+        <div class="browser-content" id="browserContent">
             <div class="gallery">
+                <img src="./scroll/white_3.png" alt="Fashion Look 4">
                 <img src="./scroll/black1.png" alt="Fashion Look 1">
                 <img src="./scroll/paris_white.png" alt="Fashion Look 2">
                 <img src="./scroll/black2.png" alt="Fashion Look 3">
                 <img src="./scroll/white_3.png" alt="Fashion Look 4">
-                <img src="./scroll/black_model.png" alt="Fashion Look 5">
+                <img src="./scroll/white_4.png" alt="Fashion Look 6">
+                <img src="./scroll/black1.png" alt="Fashion Look 1">
+                <img src="./scroll/paris_white.png" alt="Fashion Look 2">
+                <img src="./scroll/black2.png" alt="Fashion Look 3">
+                <img src="./scroll/white_3.png" alt="Fashion Look 4">
                 <img src="./scroll/white_4.png" alt="Fashion Look 6">
             </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="endOfPageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>You have been scrolling for 30 minuites straight!</p>
         </div>
     </div>
     
@@ -42,7 +55,26 @@
                 browser.style.backgroundColor = "white"; // Reset background after exiting fullscreen
             }
         });
+
+        // Add event listener to each image
+        document.querySelectorAll('.gallery img').forEach(img => {
+            img.addEventListener('click', function() {
+                window.location.href = './add-to-cart.html';
+            });
+        });
+
+        // Detect when user has scrolled to the bottom
+        document.getElementById('browserContent').addEventListener('scroll', function() {
+            let content = document.getElementById('browserContent');
+            if (content.scrollTop + content.clientHeight >= content.scrollHeight) {
+                document.getElementById('endOfPageModal').style.display = 'block';
+            }
+        });
+
+        // Close the modal
+        document.querySelector('.modal .close').addEventListener('click', function() {
+            document.getElementById('endOfPageModal').style.display = 'none';
+        });
     </script>
 </body>
 </html>
-

@@ -1,0 +1,103 @@
+body {
+    background-color: thistle; /* Ensures a visible background */
+    color: #000; /* Ensures text is visible */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.browser-header {
+    display: flex;
+    align-items: center;
+    background: #ddd;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+}
+.buttons {
+    display: flex;
+    gap: 5px;
+    margin-right: 10px;
+}
+.buttons span {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.red { background: red; }
+.yellow { background: yellow; }
+.green { background: green; cursor: pointer; }
+.browser {
+    width: 80%; /* Takes up 80% of the webpage's width */
+    height: 80vh; /* Takes up 80% of the viewport height */
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white; /* Ensures visibility in fullscreen */
+}
+.browser-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Changed to flex-start to allow scrolling */
+    overflow-y: auto; /* Allows vertical scrolling */
+    scrollbar-width: none; /* For Firefox */
+    height: calc(100% - 60px); /* Adjust height to fit within the browser */
+}
+.browser-content::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.promotion-image {
+    width: 30%; /* Takes up 30% of the empty browser space */
+    cursor: pointer;
+    display: block;
+    margin: 20px auto; /* Centers the image horizontally */
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjusted to 2 columns */
+    gap: 15px;
+    width: 80%; /* Takes up 80% of the .browser-content width */
+    max-width: 500px;
+}
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    right: 150px; /* Position to the right */
+    top: 50px; /* Position to the top */
+    width: auto; /* Auto width */
+    height: auto; /* Auto height */
+    background-color: #f8d7da; /* Light red background for warning */
+    border: 1px solid #f5c6cb; /* Darker red border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the modal */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1); /* Shadow for better visibility */
+}
+.modal-content {
+    background-color: #f8d7da; /* Light red background for warning */
+    color: #721c24; /* Dark red text color */
+    padding: 10px;
+    border-radius: 5px;
+}
+.close {
+    color: #721c24; /* Dark red color */
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
